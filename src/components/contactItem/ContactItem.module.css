@@ -1,0 +1,12 @@
+.item {
+  margin-bottom: 20px;
+  border-bottom: 1px solid brown;
+  text-align: center;
+  list-style: none;
+}
+
+.item::after {
+  content: '';
+  display: block;
+  margin-top: 20px;
+}
