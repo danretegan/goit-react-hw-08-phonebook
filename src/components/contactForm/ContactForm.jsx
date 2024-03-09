@@ -3,58 +3,48 @@ import Button from '../Button';
 import styles from './ContactForm.module.css';
 
 import { useDispatch, useSelector } from 'react-redux';
-import { addContact } from '../../redux/slices/contactsSlice';
-import { nanoid } from '@reduxjs/toolkit';
+import { addContact } from '../../redux/operations';
+import { selectContacts } from '../../redux/selectors';
 
 const ContactForm = () => {
   const [name, setName] = useState('');
-  const [number, setNumber] = useState('');
+  const [phone, setPhone] = useState('');
 
   const dispatch = useDispatch();
-  const contacts = useSelector(state => state.contacts);
+  const contacts = useSelector(selectContacts);
 
   const handleNameChange = evt => {
-    // Restrictionarea la text (litere, spații, apostrof și cratimă):
-
     const newTextValue = evt.target.value.replace(/[^a-zA-Z\s'-]/g, '');
     setName(newTextValue);
   };
 
-  const handleNumberChange = e => {
-    // Restrictionarea la cifre, spații, cratime paranteze și + la început:
-
-    const newNumberValue = e.target.value.replace(
-      /[^+\d\s()-]|^[\s()-]+|(?<=\d)[+]|\b[+]\b/g,
+  const handlePhoneChange = e => {
+    const newPhoneValue = e.target.value.replace(
+      /[^+\d\s().-]|^[\s().-]+|(?<=\d)[+]|\b[+]\b/g,
       ''
     );
-    setNumber(newNumberValue);
+    setPhone(newPhoneValue);
   };
 
   const handleAddButtonClick = () => {
-    // Verificăm dacă numele sau numărul există deja în lista de contacte:
-
     const nameExists = contacts.some(
       contact => contact.name.toLowerCase() === name.toLowerCase()
     );
-    const numberExists = contacts.some(contact => contact.number === number);
+    const phoneExists = contacts.some(contact => contact.phone === phone);
 
     if (nameExists) {
       alert(`${name} is already in contacts!`);
-    } else if (numberExists) {
-      alert(`${number} is already in contacts!`);
-    } else if (name.trim() !== '' && number.trim() !== '') {
-      // Adăugăm contactul doar dacă nu există și câmpurile nu sunt goale:
-
+    } else if (phoneExists) {
+      alert(`${phone} is already in contacts!`);
+    } else if (name.trim() !== '' && phone.trim() !== '') {
       dispatch(
         addContact({
-          id: nanoid(),
           name: name,
-          number: number,
+          phone: phone,
         })
       );
-
       setName('');
-      setNumber('');
+      setPhone('');
     }
   };
 
@@ -66,8 +56,7 @@ const ContactForm = () => {
           className={styles.input}
           type="text"
           name="name"
-          placeholder="Name and surname:"
-          // pattern="^[a-zA-Z]+(([' -][a-zA-Z ])?[a-zA-Z]*)*$"
+          placeholder="Name and surname"
           title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
           required
           value={name}
@@ -76,17 +65,16 @@ const ContactForm = () => {
       </label>
 
       <label className={styles.label}>
-        Number:
+        Phone:
         <input
           className={styles.input}
           type="tel"
-          name="number"
-          placeholder="Telephone number:"
-          // pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
+          name="phone"
+          placeholder="Telephone number"
           title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
           required
-          value={number}
-          onChange={handleNumberChange}
+          value={phone}
+          onChange={handlePhoneChange}
         />
       </label>
 

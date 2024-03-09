@@ -3,14 +3,15 @@ import styles from './SearchFilter.module.css';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { setFilter } from '../../redux/slices/filterSlice';
+import { selectFilter } from '../../redux/selectors';
 
 const SearchFilter = () => {
   const dispatch = useDispatch();
-  const filter = useSelector(state => state.filter);
+  const filter = useSelector(selectFilter);
 
   const handleFilterChange = event => {
-    const { value } = event.target;
-    dispatch(setFilter(value));
+
+    dispatch(setFilter(event.target.value.trim()));
   };
 
   return (
