@@ -3,7 +3,7 @@ import { css } from '@emotion/react';
 import PropTypes from 'prop-types';
 
 function Button({ children, action, type = 'button' }) {
-  const color = '#ff6b0a';
+  const color = '#1677FF';
   const hoverColor = '#b34d0b';
   const activeColor = 'blue';
 
@@ -13,14 +13,12 @@ function Button({ children, action, type = 'button' }) {
     border-radius: 4px;
     color: white;
     cursor: pointer;
-    font-size: 14px;
     font-weight: 700;
-    letter-spacing: 1.25px;
-    line-height: 24px;
+    font-size: 14px;
     outline: none;
     padding: 8px 16px;
     text-align: center;
-    text-transform: uppercase;
+    margin-bottom: 6px;
 
     &:hover,
     &:focus {
@@ -41,7 +39,7 @@ function Button({ children, action, type = 'button' }) {
 Button.propTypes = {
   children: PropTypes.any,
   action: PropTypes.func,
-  button: PropTypes.string,
+  type: PropTypes.string,
 };
 
 export default Button;

@@ -1,15 +1,24 @@
 import React, { useEffect } from 'react';
-import styles from './ContactList.module.css';
 import ContactItem from '../contactItem/ContactItem';
 import { useDispatch, useSelector } from 'react-redux';
-import { deleteContact, fetchContacts } from '../../redux/operations';
+import {
+  deleteContact,
+  fetchContacts,
+} from '../../redux/contacts/contacts-operations';
 import {
   selectError,
   selectFilteredContacts,
   selectIsLoading,
 } from '../../redux/selectors';
 import PropTypes from 'prop-types';
-import { Loader } from '../loader/loader';
+import { Loader } from '../loader/Loader';
+import {
+  Container as ListContainer,
+  Label as ListLabel,
+  ListItem as ListItems,
+  ErrorMessage as ErrorMsg,
+  ContactListContainer,
+} from './ContactList.styled';
 
 const ContactList = () => {
   const dispatch = useDispatch();
@@ -26,30 +35,28 @@ const ContactList = () => {
   }, [dispatch]);
 
   return (
-    <div className={styles.container}>
+    <ContactListContainer>
       {isLoading && <Loader />}{' '}
-      {/* Afișează Loader-ul doar dacă isLoading este true */}
       {!isLoading && !error && (
-        <ul className={styles.label}>
-          {contacts && contacts.length > 0 ? (
-            contacts.map(contact => (
-              <ContactItem
-                key={contact.id}
-                contact={contact}
-                onDeleteContact={handleDeleteContact}
-              />
-            ))
-          ) : (
-            <p>No contacts available.</p>
-          )}
-        </ul>
+        <ListContainer>
+          <ListLabel>
+            {contacts && contacts.length > 0 ? (
+              contacts.map(contact => (
+                <ListItems key={contact.id}>
+                  <ContactItem
+                    contact={contact}
+                    onDeleteContact={handleDeleteContact}
+                  />
+                </ListItems>
+              ))
+            ) : (
+              <p>No contacts available.</p>
+            )}
+          </ListLabel>
+        </ListContainer>
       )}
-      {error && (
-        <p style={{ color: 'red' }}>
-          An error occurred while fetching contacts.
-        </p>
-      )}
-    </div>
+      {error && <ErrorMsg>An error occurred while fetching contacts.</ErrorMsg>}
+    </ContactListContainer>
   );
 };
 
@@ -58,7 +65,7 @@ ContactList.propTypes = {
     PropTypes.shape({
       id: PropTypes.string.isRequired,
       name: PropTypes.string.isRequired,
-      phone: PropTypes.string.isRequired,
+      number: PropTypes.string.isRequired,
     })
   ),
 };

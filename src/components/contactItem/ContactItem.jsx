@@ -4,7 +4,7 @@ import styles from './ContactItem.module.css';
 import Button from '../Button';
 
 import { useDispatch } from 'react-redux';
-import { deleteContact } from '../../redux/operations';
+import { deleteContact } from '../../redux/contacts/contacts-operations';
 
 const ContactItem = ({ contact }) => {
   const dispatch = useDispatch();
@@ -15,10 +15,11 @@ const ContactItem = ({ contact }) => {
 
   return (
     <div className={styles.item}>
-      <li>
-        <strong>{contact.name}</strong>: <br /> {contact.phone}
-      </li>
+      <p>
+        <strong>{contact.name}</strong>: <br /> {contact.number}
+      </p>
       <Button action={handleDeleteContact}>Delete</Button>
+      <Button>Edit</Button>
     </div>
   );
 };
@@ -27,7 +28,7 @@ ContactItem.propTypes = {
   contact: PropTypes.shape({
     id: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
-    phone: PropTypes.string,
+    number: PropTypes.string,
   }).isRequired,
 };
 

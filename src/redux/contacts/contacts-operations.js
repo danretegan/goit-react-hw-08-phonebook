@@ -1,7 +1,9 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-axios.defaults.baseURL = 'https://65e1984da8583365b316c9c5.mockapi.io';
+import setAxiosDefaults from '../setAxiosDefaults';
+
+setAxiosDefaults();
 
 // Se definește si se exporta o acțiune asincronă numită 'fetchContacts' folosind createAsyncThunk:
 export const fetchContacts = createAsyncThunk(
@@ -25,7 +27,7 @@ export const fetchContacts = createAsyncThunk(
   }
 );
 
-    // ==== Actiunea asincrona addContact: ====
+// ==== Actiunea asincrona addContact: ====
 export const addContact = createAsyncThunk(
   'contacts/addContact',
   async (contact, thunkAPI) => {
@@ -44,6 +46,22 @@ export const deleteContact = createAsyncThunk(
   async (contactId, thunkAPI) => {
     try {
       const response = await axios.delete(`/contacts/${contactId}`);
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+// ==== Actiunea asincrona editContact: ====
+export const editContact = createAsyncThunk(
+  'contacts/editContact',
+  async (data, thunkAPI) => {
+    try {
+      const response = await axios.patch(`/contacts/${data.id}`, {
+        name: data.name,
+        number: data.number,
+      });
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
