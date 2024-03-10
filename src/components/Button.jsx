@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 function Button({ children, action, type = 'button' }) {
   const color = '#1677FF';
-  const hoverColor = '#b34d0b';
+  const hoverColor = '#4096ff';
   const activeColor = 'blue';
 
   const style = css`

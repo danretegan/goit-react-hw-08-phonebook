@@ -1,10 +1,5 @@
-import { BiSolidEditAlt } from 'react-icons/bi';
 import { Watermark } from 'antd';
-import {
-  FcBusinessContact,
-  FcCellPhone,
-  FcConferenceCall,
-} from 'react-icons/fc';
+import { FcCellPhone } from 'react-icons/fc';
 
 const styles = {
   container: {
