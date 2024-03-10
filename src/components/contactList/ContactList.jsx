@@ -13,9 +13,10 @@ import {
 } from '../../redux/selectors';
 import {
   ContactListContainer,
-  Label as ListLabel,
-  ListItem as ListItems,
-  ErrorMessage as ErrorMsg,
+  ListLabel,
+  ListItem,
+  ErrorMessage,
+  StyledParagraph,
 } from './ContactList.styled';
 import { Loader } from 'components/Loader';
 
@@ -40,19 +41,21 @@ const ContactList = () => {
         <ListLabel>
           {contacts && contacts.length > 0 ? (
             contacts.map(contact => (
-              <ListItems key={contact.id}>
+              <ListItem key={contact.id}>
                 <ContactItem
                   contact={contact}
                   onDeleteContact={handleDeleteContact}
                 />
-              </ListItems>
+              </ListItem>
             ))
           ) : (
-            <p>No contacts available.</p>
+            <StyledParagraph>No contacts available.</StyledParagraph>
           )}
         </ListLabel>
       )}
-      {error && <ErrorMsg>An error occurred while fetching contacts.</ErrorMsg>}
+      {error && (
+        <ErrorMessage>An error occurred while fetching contacts.</ErrorMessage>
+      )}
     </ContactListContainer>
   );
 };
