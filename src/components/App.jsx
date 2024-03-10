@@ -7,8 +7,8 @@ import { PrivateRoute } from './PrivateRoute';
 import { refreshUser } from '../redux/auth/auth-operations';
 import { Container } from './App.styled';
 import { Layout } from './Layout';
-import { selectIsRefreshing } from '../redux/auth/auth-selectors';
 import { Loader } from './Loader';
+import { useAuth } from 'hooks';
 
 const HomePage = lazy(() => import('../pages/Home'));
 const RegisterPage = lazy(() => import('../pages/Register'));
@@ -17,12 +17,13 @@ const ContactsPage = lazy(() => import('../pages/Contacts'));
 
 function App() {
   const dispatch = useDispatch();
+  const { isRefreshing } = useAuth();
 
   useEffect(() => {
     dispatch(refreshUser());
   }, [dispatch]);
 
-  return selectIsRefreshing ? ( // if isRefreshing is true, then render Loader, else render Container
+  return isRefreshing ? ( // if isRefreshing is true, then render Loader, else render Container
     <Loader /> // Loader - spinner
   ) : (
     <Container>
