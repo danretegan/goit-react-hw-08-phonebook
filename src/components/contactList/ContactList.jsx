@@ -11,7 +11,6 @@ import {
   selectIsLoading,
 } from '../../redux/selectors';
 import PropTypes from 'prop-types';
-import { Loader } from '../loader/Loader';
 import {
   Container as ListContainer,
   Label as ListLabel,
@@ -19,6 +18,7 @@ import {
   ErrorMessage as ErrorMsg,
   ContactListContainer,
 } from './ContactList.styled';
+import { Loader } from '../loader/Loader';
 
 const ContactList = () => {
   const dispatch = useDispatch();
