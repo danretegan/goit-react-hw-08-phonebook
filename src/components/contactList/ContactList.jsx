@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
-import ContactItem from '../contactItem/ContactItem';
 import { useDispatch, useSelector } from 'react-redux';
+import PropTypes from 'prop-types';
+import ContactItem from '../contactItem/ContactItem';
 import {
   deleteContact,
   fetchContacts,
@@ -10,7 +11,6 @@ import {
   selectFilteredContacts,
   selectIsLoading,
 } from '../../redux/selectors';
-import PropTypes from 'prop-types';
 import {
   Container as ListContainer,
   Label as ListLabel,
