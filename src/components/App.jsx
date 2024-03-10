@@ -8,7 +8,6 @@ import { PrivateRoute } from './PrivateRoute';
 import { refreshUser } from '../redux/auth/auth-operations';
 import { Container } from './App.styled';
 import { Layout } from './Layout';
-import { Loader } from './loader/Loader';
 
 const HomePage = lazy(() => import('../pages/Home'));
 const RegisterPage = lazy(() => import('../pages/Register'));
@@ -23,9 +22,7 @@ function App() {
     dispatch(refreshUser());
   }, [dispatch]);
 
-  return isRefreshing ? ( // if isRefreshing is true, then render Loader, else render Container
-    <Loader /> // Loader - spinner
-  ) : (
+  return (
     <Container>
       <Routes>
         <Route path="/" element={<Layout />}>
