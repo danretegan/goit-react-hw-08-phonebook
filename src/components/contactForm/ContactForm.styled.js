@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.form`
-  align-items: flex-start;
+  align-items: center; /* Align items in the center */
   border-radius: 8px;
   border: 1px solid black;
   box-shadow: inset 0 0 10px black;
@@ -21,7 +21,11 @@ export const Input = styled.input`
   /* Adaugă aici orice stil specific pentru input */
 `;
 
-// Dacă ai nevoie de stiluri generale pentru componenta ContactForm, poți adăuga un container styled components:
 export const ContactFormContainer = styled.div`
   /* Adaugă aici orice stiluri generale pentru ContactForm */
+`;
+
+export const Button = styled.button`
+  /* Add any styles for the button here */
+  align-self: center; /* Center the button within its container */
 `;

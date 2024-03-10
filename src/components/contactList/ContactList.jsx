@@ -18,7 +18,7 @@ import {
   ErrorMessage as ErrorMsg,
   ContactListContainer,
 } from './ContactList.styled';
-import { Loader } from '../loader/Loader';
+import { Loader } from '../../components/loader/Loader';
 
 const ContactList = () => {
   const dispatch = useDispatch();
