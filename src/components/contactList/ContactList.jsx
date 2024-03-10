@@ -18,6 +18,7 @@ import {
   ErrorMessage as ErrorMsg,
   ContactListContainer,
 } from './ContactList.styled';
+import { Loader } from '../loader/Loader';
 
 const ContactList = () => {
   const dispatch = useDispatch();
@@ -35,6 +36,7 @@ const ContactList = () => {
 
   return (
     <ContactListContainer>
+      {isLoading && <Loader />}{' '}
       {!isLoading && !error && (
         <ListContainer>
           <ListLabel>
