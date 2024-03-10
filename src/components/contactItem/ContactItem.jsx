@@ -13,6 +13,7 @@ import {
   EditButton,
   DeleteButton,
 } from './ContactItem.styled';
+import { handleNameInput, handleNumberInput } from '../handleInput';
 
 function ContactItem({ contact }) {
   const dispatch = useDispatch();
@@ -35,19 +36,6 @@ function ContactItem({ contact }) {
 
   const handleCancel = () => {
     setShowModal(false);
-  };
-
-  const handleNameChange = evt => {
-    const newTextValue = evt.target.value.replace(/[^a-zA-Z\s'-]/g, '');
-    setNewName(newTextValue);
-  };
-
-  const handleNumberChange = e => {
-    const newNumberValue = e.target.value.replace(
-      /[^+\d\s().-]|^[\s().-]+|(?<=\d)[+]|\b[+]\b/g,
-      ''
-    );
-    setNewNumber(newNumberValue);
   };
 
   return (
@@ -85,7 +73,7 @@ function ContactItem({ contact }) {
           <Input
             type="text"
             value={newName}
-            onChange={handleNameChange}
+            onChange={evt => handleNameInput(evt, setNewName)}
             title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
             required
           />
@@ -93,7 +81,7 @@ function ContactItem({ contact }) {
           <Input
             type="text"
             value={newNumber}
-            onChange={handleNumberChange}
+            onChange={e => handleNumberInput(e, setNewNumber)}
             title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
             required
           />

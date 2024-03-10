@@ -8,6 +8,7 @@ import {
   Label as FormLabel,
   Input as FormInput,
 } from './ContactForm.styled';
+import { handleNameInput, handleNumberInput } from '../handleInput';
 
 const ContactForm = () => {
   const [name, setName] = useState('');
@@ -15,19 +16,6 @@ const ContactForm = () => {
 
   const dispatch = useDispatch();
   const contacts = useSelector(selectContacts);
-
-  const handleNameChange = evt => {
-    const newTextValue = evt.target.value.replace(/[^a-zA-Z\s'-]/g, '');
-    setName(newTextValue);
-  };
-
-  const handleNumberChange = e => {
-    const newNumberValue = e.target.value.replace(
-      /[^+\d\s().-]|^[\s().-]+|(?<=\d)[+]|\b[+]\b/g,
-      ''
-    );
-    setNumber(newNumberValue);
-  };
 
   const handleAddButtonClick = () => {
     const nameExists = contacts.some(
@@ -62,7 +50,7 @@ const ContactForm = () => {
           title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
           required
           value={name}
-          onChange={handleNameChange}
+          onChange={evt => handleNameInput(evt, setName)}
         />
       </FormLabel>
 
@@ -75,7 +63,7 @@ const ContactForm = () => {
           title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
           required
           value={number}
-          onChange={handleNumberChange}
+          onChange={e => handleNumberInput(e, setNumber)}
         />
       </FormLabel>
 
