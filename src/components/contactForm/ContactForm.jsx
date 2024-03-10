@@ -7,7 +7,6 @@ import {
   Container as FormContainer,
   Label as FormLabel,
   Input as FormInput,
-  ContactFormContainer,
 } from './ContactForm.styled';
 
 const ContactForm = () => {
