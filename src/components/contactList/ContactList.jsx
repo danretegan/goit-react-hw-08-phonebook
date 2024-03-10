@@ -12,11 +12,10 @@ import {
   selectIsLoading,
 } from '../../redux/selectors';
 import {
-  Container as ListContainer,
+  ContactListContainer,
   Label as ListLabel,
   ListItem as ListItems,
   ErrorMessage as ErrorMsg,
-  ContactListContainer,
 } from './ContactList.styled';
 import { Loader } from 'components/Loader';
 
@@ -38,22 +37,20 @@ const ContactList = () => {
     <ContactListContainer>
       {isLoading && <Loader />}{' '}
       {!isLoading && !error && (
-        <ListContainer>
-          <ListLabel>
-            {contacts && contacts.length > 0 ? (
-              contacts.map(contact => (
-                <ListItems key={contact.id}>
-                  <ContactItem
-                    contact={contact}
-                    onDeleteContact={handleDeleteContact}
-                  />
-                </ListItems>
-              ))
-            ) : (
-              <p>No contacts available.</p>
-            )}
-          </ListLabel>
-        </ListContainer>
+        <ListLabel>
+          {contacts && contacts.length > 0 ? (
+            contacts.map(contact => (
+              <ListItems key={contact.id}>
+                <ContactItem
+                  contact={contact}
+                  onDeleteContact={handleDeleteContact}
+                />
+              </ListItems>
+            ))
+          ) : (
+            <p>No contacts available.</p>
+          )}
+        </ListLabel>
       )}
       {error && <ErrorMsg>An error occurred while fetching contacts.</ErrorMsg>}
     </ContactListContainer>

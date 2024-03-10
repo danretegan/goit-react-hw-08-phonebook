@@ -53,39 +53,37 @@ const ContactForm = () => {
   };
 
   return (
-    <ContactFormContainer>
-      <FormContainer>
-        <FormLabel>
-          Name:
-          <FormInput
-            type="text"
-            name="name"
-            placeholder="Name and surname"
-            title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-            required
-            value={name}
-            onChange={handleNameChange}
-          />
-        </FormLabel>
+    <FormContainer>
+      <FormLabel>
+        Name:
+        <FormInput
+          type="text"
+          name="name"
+          placeholder="Name and surname"
+          title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
+          required
+          value={name}
+          onChange={handleNameChange}
+        />
+      </FormLabel>
 
-        <FormLabel>
-          Number:
-          <FormInput
-            type="tel"
-            name="number"
-            placeholder="Telephone number"
-            title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
-            required
-            value={number}
-            onChange={handleNumberChange}
-          />
-        </FormLabel>
+      <FormLabel>
+        Number:
+        <FormInput
+          type="tel"
+          name="number"
+          placeholder="Telephone number"
+          title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
+          required
+          value={number}
+          onChange={handleNumberChange}
+        />
+      </FormLabel>
 
-        <Button type="button" action={handleAddButtonClick}>
-          Add contact
-        </Button>
-      </FormContainer>
-    </ContactFormContainer>
+      <Button type="button" action={handleAddButtonClick}>
+        Add contact
+      </Button>
+    </FormContainer>
   );
 };
 

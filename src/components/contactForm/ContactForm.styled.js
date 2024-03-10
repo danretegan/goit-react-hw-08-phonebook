@@ -21,11 +21,6 @@ export const Input = styled.input`
   /* Adaugă aici orice stil specific pentru input */
 `;
 
-export const ContactFormContainer = styled.div`
-  /* Adaugă aici orice stiluri generale pentru ContactForm */
-`;
-
 export const Button = styled.button`
-  /* Add any styles for the button here */
   align-self: center; /* Center the button within its container */
 `;
