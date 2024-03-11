@@ -42,6 +42,7 @@ export const EditButton = styled.button`
   padding: 8px 16px;
   text-align: center;
   margin-top: 5px;
+  width: 115px;
 
   &:hover {
     background-color: #4096ff;
@@ -70,6 +71,7 @@ export const DeleteButton = styled.button`
   padding: 8px 16px;
   text-align: center;
   margin-top: 5px;
+  width: 115px;
 
   &:hover {
     background-color: #4096ff;

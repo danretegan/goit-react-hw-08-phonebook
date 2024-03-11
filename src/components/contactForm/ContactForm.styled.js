@@ -44,7 +44,3 @@ export const Input = styled.input`
     background-color: #ffffff;
   }
 `;
-
-export const Button = styled.button`
-  align-self: center; /* Center the button within its container */
-`;
