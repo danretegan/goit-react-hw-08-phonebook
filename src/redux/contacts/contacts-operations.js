@@ -1,3 +1,4 @@
+import { notification } from 'antd';
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
@@ -21,6 +22,11 @@ export const fetchContacts = createAsyncThunk(
       // Returnează datele obținute de la server:
       return response.data;
     } catch (error) {
+      // Afisam eroarea in browser cu ajutorul Ant Design notification:
+      notification.error({
+        message: 'Error',
+        description: 'Failed to fetch contacts. Please try again.',
+      });
       // În caz de eroare, se respinge cu o valoare care include mesajul de eroare:
       return thunkAPI.rejectWithValue(error.message);
     }
@@ -35,6 +41,10 @@ export const addContact = createAsyncThunk(
       const response = await axios.post('/contacts', contact);
       return response.data;
     } catch (error) {
+      notification.error({
+        message: 'Error',
+        description: 'Failed to add contact. Please try again.',
+      });
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -48,6 +58,10 @@ export const deleteContact = createAsyncThunk(
       const response = await axios.delete(`/contacts/${contactId}`);
       return response.data;
     } catch (error) {
+      notification.error({
+        message: 'Error',
+        description: 'Failed to delete contact. Please try again.',
+      });
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -64,6 +78,10 @@ export const editContact = createAsyncThunk(
       });
       return response.data;
     } catch (error) {
+      notification.error({
+        message: 'Error',
+        description: 'Failed to edit contact. Please try again.',
+      });
       return thunkAPI.rejectWithValue(error.message);
     }
   }

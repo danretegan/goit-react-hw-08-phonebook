@@ -23,11 +23,11 @@ function ContactItem({ contact }) {
 
   const confirm = e => {
     handleDelete(e.target.value);
-    message.success('Click on Yes');
+    message.success('The contact was deleted!');
   };
   const cancel = e => {
     console.log(e);
-    message.error('Click on No');
+    message.error('The contact is kept!');
   };
 
   const handleDelete = () => {
