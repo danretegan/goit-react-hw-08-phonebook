@@ -8,6 +8,7 @@ import {
   Label as FormLabel,
   Input as FormInput,
 } from './ContactForm.styled';
+import { notification } from 'antd';
 import { handleNameInput, handleNumberInput } from '../handleInput';
 
 const ContactForm = () => {
@@ -24,9 +25,15 @@ const ContactForm = () => {
     const numberExists = contacts.some(contact => contact.number === number);
 
     if (nameExists) {
-      alert(`${name} is already in contacts!`);
+      notification.error({
+        message: 'Error',
+        description: `${name} is already in contacts!`,
+      });
     } else if (numberExists) {
-      alert(`${number} is already in contacts!`);
+      notification.error({
+        message: 'Error',
+        description: `${number} is already in contacts!`,
+      });
     } else if (name.trim() !== '' && number.trim() !== '') {
       dispatch(
         addContact({
