@@ -33,14 +33,15 @@ export const Input = styled.input`
   border-style: solid;
   border-color: #d9d9d9;
 
-  &&:hover {
-    color: red;
+  &:hover {
     border-color: #1677ff;
   }
 
-  &&:focus {
-    color: red;
+  &:focus {
     border-color: #1677ff;
+    box-shadow: 0 0 0 2px rgba(5, 145, 255, 0.1);
+    outline: 0;
+    background-color: #ffffff;
   }
 `;
 

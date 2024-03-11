@@ -35,11 +35,18 @@ export const EditButton = styled.button`
   padding: 8px 16px;
   text-align: center;
   margin-top: 5px;
+
   &:hover {
     background-color: #4096ff;
+    box-shadow: 0 2px 0 rgba(5, 145, 255, 0.1);
   }
-  &:focus {
-    outline: 2px solid black;
+  &.active {
+    background-color: #0958d9;
+  }
+  &:focus-visible {
+    outline: 4px solid #91caff;
+    outline-offset: 1px;
+    transition: outline-offset 0s, outline 0s;
   }
 `;
 
@@ -55,10 +62,17 @@ export const DeleteButton = styled.button`
   padding: 8px 16px;
   text-align: center;
   margin-top: 5px;
+
   &:hover {
     background-color: #4096ff;
+    box-shadow: 0 2px 0 rgba(5, 145, 255, 0.1);
   }
-  &:focus {
-    outline: 2px solid red;
+  &.active {
+    background-color: #0958d9;
+  }
+  &:focus-visible {
+    outline: 4px solid red;
+    outline-offset: 1px;
+    transition: outline-offset 0s, outline 0s;
   }
 `;

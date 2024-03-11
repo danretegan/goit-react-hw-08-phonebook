@@ -27,8 +27,15 @@ export const Input = styled.input`
   border-width: 1px;
   border-style: solid;
   border-color: #d9d9d9;
-`;
 
-export const SearchFilterContainer = styled.div`
-  /* Adaugă aici orice stiluri generale pentru SearchFilter */
+  &:hover {
+    border-color: #1677ff;
+  }
+
+  &:focus {
+    border-color: #1677ff;
+    box-shadow: 0 0 0 2px rgba(5, 145, 255, 0.1);
+    outline: 0;
+    background-color: #ffffff;
+  }
 `;
