@@ -77,7 +77,7 @@ function ContactItem({ contact }) {
           </Button>,
         ]}
       >
-        <div className="modal-content">
+        <div>
           <label>Edit name:</label>
           <Input
             type="text"

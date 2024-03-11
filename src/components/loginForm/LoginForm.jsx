@@ -14,7 +14,6 @@ const LoginForm = () => {
   return (
     <Form
       name="normal_login"
-      className="login-form"
       initialValues={{
         remember: false,
       }}
@@ -29,10 +28,7 @@ const LoginForm = () => {
           },
         ]}
       >
-        <Input
-          prefix={<UserOutlined className="site-form-item-icon" />}
-          placeholder="email"
-        />
+        <Input prefix={<UserOutlined />} placeholder="email" />
       </Form.Item>
       <Form.Item
         name="password"
@@ -44,7 +40,7 @@ const LoginForm = () => {
         ]}
       >
         <Input
-          prefix={<LockOutlined className="site-form-item-icon" />}
+          prefix={<LockOutlined />}
           type="password"
           placeholder="Password"
         />
@@ -56,7 +52,7 @@ const LoginForm = () => {
       </Form.Item>
 
       <Form.Item>
-        <Button type="primary" htmlType="submit" className="login-form-button">
+        <Button type="primary" htmlType="submit">
           Log in
         </Button>
       </Form.Item>
