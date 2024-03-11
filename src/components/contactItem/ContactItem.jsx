@@ -47,14 +47,6 @@ function ContactItem({ contact }) {
     setShowModal(false);
   };
 
-  const handleNameChange = e => {
-    setNewName(e.target.value);
-  };
-
-  const handleNumberChange = e => {
-    setNewNumber(e.target.value);
-  };
-
   return (
     <ContactItems>
       <ContactName>{contact.name}</ContactName>
