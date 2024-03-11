@@ -7,7 +7,7 @@ export const ContactItems = styled.li`
   margin-bottom: 10px;
   background-color: #f5f6f7;
   padding: 10px;
-  border-radius: 4px;
+  border-radius: 6px;
 `;
 
 export const ContactName = styled.span`
@@ -26,7 +26,7 @@ export const ContactNumber = styled.a`
 export const EditButton = styled.button`
   background-color: #1677ff;
   border: none;
-  border-radius: 4px;
+  border-radius: 6px;
   color: white;
   cursor: pointer;
   font-weight: 700;
@@ -46,7 +46,7 @@ export const EditButton = styled.button`
 export const DeleteButton = styled.button`
   background-color: #1677ff;
   border: none;
-  border-radius: 4px;
+  border-radius: 6px;
   color: red;
   cursor: pointer;
   font-weight: 700;

@@ -21,6 +21,15 @@ function ContactItem({ contact }) {
   const [newName, setNewName] = useState(contact.name);
   const [newNumber, setNewNumber] = useState(contact.number);
 
+  const confirm = e => {
+    handleDelete(e.target.value);
+    message.success('Click on Yes');
+  };
+  const cancel = e => {
+    console.log(e);
+    message.error('Click on No');
+  };
+
   const handleDelete = () => {
     dispatch(deleteContact(contact.id));
   };
@@ -38,6 +47,14 @@ function ContactItem({ contact }) {
     setShowModal(false);
   };
 
+  const handleNameChange = e => {
+    setNewName(e.target.value);
+  };
+
+  const handleNumberChange = e => {
+    setNewNumber(e.target.value);
+  };
+
   return (
     <ContactItems>
       <ContactName>{contact.name}</ContactName>
@@ -48,8 +65,8 @@ function ContactItem({ contact }) {
       <Popconfirm
         title="Delete contact"
         description="Are you sure you want to delete this contact?"
-        onConfirm={handleDelete}
-        onCancel={() => message.error('Click on No')}
+        onConfirm={confirm}
+        onCancel={cancel}
         okText="Yes"
         cancelText="No"
       >
@@ -58,7 +75,7 @@ function ContactItem({ contact }) {
 
       <Modal
         open={showModal}
-        onClose={handleCancel}
+        onCancel={handleCancel}
         footer={[
           <Button key="cancel" onClick={handleCancel}>
             Cancel

@@ -9,7 +9,7 @@ export const Form = styled.form`
 export const Input = styled.input`
   padding: 10px;
   margin-bottom: 10px;
-  border-radius: 4px;
+  border-radius: 6px;
   border: none;
   outline: 0;
   background-color: #fff;
@@ -21,7 +21,7 @@ backgroundColor: '#1677FF'
   padding: 10px 20px;
   margin-top: 5px;
   font-size: 14px;
-  border-radius: 4px;
+  border-radius: 6px;
   border: 1px solid;
   :hover {
     background-color: #e0e0e0;    

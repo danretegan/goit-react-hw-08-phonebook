@@ -10,7 +10,7 @@ function Button({ children, action, type = 'button' }) {
   const style = css`
     background-color: ${color};
     border: none;
-    border-radius: 4px;
+    border-radius: 6px;
     color: white;
     cursor: pointer;
     font-weight: 700;

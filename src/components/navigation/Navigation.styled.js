@@ -6,7 +6,7 @@ export const Links = styled(NavLink)`
   text-decoration: none;
   padding: 8px 16px;
   margin-bottom: 6px;
-  border-radius: 4px;
+  border-radius: 6px;
   font-weight: 700;
   color: black;
 
