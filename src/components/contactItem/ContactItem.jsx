@@ -46,8 +46,8 @@ function ContactItem({ contact }) {
       </ContactNumber>
       <EditButton onClick={handleEdit}>Edit</EditButton>
       <Popconfirm
-        title="Delete the contact"
-        description="Are you sure to delete this contact?"
+        title="Delete contact"
+        description="Are you sure you want to delete this contact?"
         onConfirm={handleDelete}
         onCancel={() => message.error('Click on No')}
         okText="Yes"
@@ -74,7 +74,7 @@ function ContactItem({ contact }) {
             type="text"
             value={newName}
             onChange={evt => handleNameInput(evt, setNewName)}
-            title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
+            title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan."
             required
           />
           <label>Edit phone number:</label>

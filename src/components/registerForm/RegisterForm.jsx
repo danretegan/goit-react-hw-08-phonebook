@@ -45,10 +45,6 @@ const RegisterForm = () => {
       name="register"
       onFinish={onFinish}
       size={'default'}
-      initialValues={{
-        residence: ['zhejiang', 'hangzhou', 'xihu'],
-        prefix: '86',
-      }}
       style={{
         width: 300,
       }}
@@ -60,11 +56,11 @@ const RegisterForm = () => {
         rules={[
           {
             type: 'email',
-            message: 'The input is not valid E-mail!',
+            message: 'The email entered is not valid!',
           },
           {
             required: true,
-            message: 'Please input your E-mail!',
+            message: 'Please enter your email!',
           },
         ]}
       >
@@ -77,7 +73,7 @@ const RegisterForm = () => {
         rules={[
           {
             required: true,
-            message: 'Please input your password!',
+            message: 'Please enter your password!',
           },
         ]}
         hasFeedback
@@ -101,7 +97,7 @@ const RegisterForm = () => {
                 return Promise.resolve();
               }
               return Promise.reject(
-                new Error('The new password that you entered do not match!')
+                new Error('The new password you entered does not match!')
               );
             },
           }),
@@ -113,11 +109,10 @@ const RegisterForm = () => {
       <Form.Item
         name="name"
         label="Name"
-        tooltip="What do you want others to call you?"
         rules={[
           {
             required: true,
-            message: 'Please input your name!',
+            message: 'Please enter your name!',
             whitespace: true,
           },
         ]}

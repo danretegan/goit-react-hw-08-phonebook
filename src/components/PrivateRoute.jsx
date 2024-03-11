@@ -2,13 +2,17 @@ import { Navigate } from 'react-router-dom';
 import { useAuth } from '../hooks';
 
 /**
- * - If the route is private and the user is logged in, render the component
- * - Otherwise render <Navigate> to redirectTo
+ * - Dacă ruta este privată și utilizatorul este autentificat, randează componenta.
+ * - Altfel randează <Navigate> pentru a redirecționa către redirectTo.
  */
 
 export const PrivateRoute = ({ component: Component, redirectTo = '/' }) => {
-  // component - ContactsPage
-  const { isLoggedIn, isRefreshing } = useAuth(); // isLoggedIn - true or false
-  const shouldRedirect = !isLoggedIn && !isRefreshing; // if isLoggedIn is false and isRefreshing is false, then shouldRedirect is true
-  return shouldRedirect ? <Navigate to={redirectTo} /> : Component; // if shouldRedirect is true, then redirect to redirectTo, else render Component
+  // Se utilizează hook-ul `useAuth` pentru a obține starea autentificării și pentru a actualiza informațiile (isRefreshing).
+  const { isLoggedIn, isRefreshing } = useAuth();
+
+  // Verifică dacă este necesară redirecționarea, adică dacă utilizatorul nu este autentificat și nu se reîmprospătează informațiile de autentificare.
+  const shouldRedirect = !isLoggedIn && !isRefreshing;
+
+  // Returnează componenta dacă NU este necesară redirecționarea, altfel randează un <Navigate> pentru a redirecționa către ruta specificată ('/').
+  return shouldRedirect ? <Navigate to={redirectTo} /> : Component;
 };

@@ -28,7 +28,7 @@ export const Button = styled.button`
   border-radius: 4px;
   border: 1px solid;
   :hover {
-    background-color: #1677ff;
+    background-color: #4096ff;
     > svg {
       fill: #fff;
     }

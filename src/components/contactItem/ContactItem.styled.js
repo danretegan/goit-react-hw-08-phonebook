@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const ContactItems = styled.li`
   display: flex;
   flex-direction: column;
-  align-items: center; /* Centrare elementelor în axa transversală (vertical) */
+  align-items: center;
   margin-bottom: 10px;
   background-color: #f5f6f7;
   padding: 10px;
@@ -17,7 +17,8 @@ export const ContactName = styled.span`
 export const ContactNumber = styled.a`
   cursor: pointer;
   color: #1677ff;
-  :hover {
+
+  &:hover {
     text-decoration: underline;
   }
 `;
@@ -33,9 +34,12 @@ export const EditButton = styled.button`
   outline: none;
   padding: 8px 16px;
   text-align: center;
-  margin-top: 5px; /* Adăugat spațiu între numărul de telefon și butoane */
-  :hover {
-    background-color: #1677ff;
+  margin-top: 5px;
+  &:hover {
+    background-color: #4096ff;
+  }
+  &:focus {
+    outline: 2px solid black;
   }
 `;
 
@@ -50,8 +54,11 @@ export const DeleteButton = styled.button`
   outline: none;
   padding: 8px 16px;
   text-align: center;
-  margin-top: 5px; /* Adăugat spațiu între butoane */
-  :hover {
-    background-color: #1677ff;
+  margin-top: 5px;
+  &:hover {
+    background-color: #4096ff;
+  }
+  &:focus {
+    outline: 2px solid red;
   }
 `;

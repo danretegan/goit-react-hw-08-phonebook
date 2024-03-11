@@ -1,4 +1,3 @@
-import { Watermark } from 'antd';
 import { FcCellPhone } from 'react-icons/fc';
 
 const styles = {
@@ -18,14 +17,12 @@ const styles = {
 };
 
 const Home = () => (
-  <Watermark gap={[50, 50]} content="Phonebook">
-    <div style={styles.container}>
-      <h1 style={styles.title}>Phonebook</h1>
-      <p>
-        <FcCellPhone size="320" />
-      </p>
-    </div>
-  </Watermark>
+  <div style={styles.container}>
+    <h1 style={styles.title}>Phonebook</h1>
+    <p>
+      <FcCellPhone size="320" />
+    </p>
+  </div>
 );
 
 export default Home;

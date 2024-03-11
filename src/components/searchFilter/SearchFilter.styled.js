@@ -16,7 +16,6 @@ export const Input = styled.input`
   /* Adaugă aici orice stil specific pentru input */
 `;
 
-// Dacă ai nevoie de stiluri generale pentru componenta SearchFilter, poți adăuga un container styled components:
 export const SearchFilterContainer = styled.div`
   /* Adaugă aici orice stiluri generale pentru SearchFilter */
 `;

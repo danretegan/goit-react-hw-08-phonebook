@@ -22,12 +22,8 @@ export const Button = styled.button`
   font-size: 14px;
   border-radius: 4px;
   border: 1px solid;
-  :hover {
-    background-color: #e0e0e0;
-  }
 `;
 
 export const Text = styled.p`
-  /* padding: 10px 20px; */
   margin-bottom: 15px;
 `;
