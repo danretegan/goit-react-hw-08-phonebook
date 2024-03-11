@@ -21,6 +21,13 @@ export const ContactNumber = styled.a`
   &:hover {
     text-decoration: underline;
   }
+
+  &:focus-visible {
+    border-radius: 6px;
+    outline: 4px solid #91caff;
+    outline-offset: 1px;
+    transition: outline-offset 0s, outline 0s;
+  }
 `;
 
 export const EditButton = styled.button`
@@ -43,6 +50,7 @@ export const EditButton = styled.button`
   &.active {
     background-color: #0958d9;
   }
+
   &:focus-visible {
     outline: 4px solid #91caff;
     outline-offset: 1px;
