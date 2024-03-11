@@ -4,7 +4,7 @@ export const Header = styled.header`
   @media only screen and (max-width: 600px) {
     width: 320px;
   }
-  width: 768px;
+  width: 600px;
   margin-top: 20px;
   margin-bottom: 20px;
   display: flex;
