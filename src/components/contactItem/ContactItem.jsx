@@ -23,11 +23,15 @@ function ContactItem({ contact }) {
 
   const confirm = e => {
     handleDelete(e.target.value);
-    message.success('The contact was deleted!');
+    message.error(
+      `Contact "${contact.name}" with number "${contact.number}" was deleted!`
+    );
   };
   const cancel = e => {
     console.log(e);
-    message.error('The contact is kept!');
+    message.success(
+      `Contact "${contact.name}" with number "${contact.number}" is kept!`
+    );
   };
 
   const handleDelete = () => {
