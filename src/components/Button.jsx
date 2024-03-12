@@ -17,7 +17,7 @@ function Button({ children, action, type = 'button' }) {
     font-size: 14px;
     padding: 8px 16px;
     text-align: center;
-    margin-bottom: 6px;
+    margin-bottom: 5px;
     transition: all 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
 
     &:hover {

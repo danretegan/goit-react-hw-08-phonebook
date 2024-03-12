@@ -7,7 +7,6 @@ import { PrivateRoute } from './PrivateRoute';
 import { refreshUser } from '../redux/auth/auth-operations';
 import { Container } from './App.styled';
 import { Layout } from './Layout';
-import { Loader } from './Loader';
 import { useAuth } from 'hooks';
 
 const HomePage = lazy(() => import('../pages/Home'));
@@ -23,15 +22,15 @@ function App() {
     dispatch(refreshUser());
   }, [dispatch]);
 
-  return isRefreshing ? ( // if isRefreshing is true, then render Loader, else render Container
-    <Loader /> // Loader - spinner
+  return isRefreshing ? ( // în cazul în care `isRefreshing` este adevărat se afișează mesajul de încărcare "Refreshing user...", altfel se afișează elementul <Container>
+    <b>Refreshing user...</b>
   ) : (
     <Container>
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<HomePage />} />
           <Route
-            path="registration"
+            path="register"
             element={
               <RestrictedRoute
                 redirectTo="/contacts"
