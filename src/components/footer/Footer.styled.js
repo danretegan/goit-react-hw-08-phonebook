@@ -2,14 +2,6 @@ import { BsGithub } from 'react-icons/bs';
 import styled from 'styled-components';
 
 export const FooterStyles = styled.footer`
-  width: 600px;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-
-  border-top: solid 1px #2a363b;
   @media only screen and (max-width: 600px) {
     width: 320px;
     display: flex;
@@ -18,14 +10,21 @@ export const FooterStyles = styled.footer`
     align-items: center;
     gap: 0;
   }
+  width: 600px;
+  border-top: solid 1px #2a363b;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
 `;
 
 export const Container = styled.div`
-  display: flex;
-  justify-content: center;
   @media only screen and (max-width: 600px) {
     margin-bottom: 16px;
   }
+  display: flex;
+  justify-content: center;
 `;
 
 export const Icon = styled(BsGithub)`
