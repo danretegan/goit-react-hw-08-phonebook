@@ -1,5 +1,5 @@
 export const handleNameInput = (evt, setName) => {
-  const newTextValue = evt.target.value.replace(/[^a-zA-Z\s'-]/g, '');
+  const newTextValue = evt.target.value.replace(/[^a-zA-Z\s\.'-]/g, '');
   setName(newTextValue);
 };
 
