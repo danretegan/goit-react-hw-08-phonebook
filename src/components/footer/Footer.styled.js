@@ -29,8 +29,8 @@ export const Container = styled.div`
 
 export const Icon = styled(BsGithub)`
   height: 20px;
-  margin-left: 10px;
   width: 20px;
+  margin-left: 10px;
   transition: fill 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
 
   &:hover,
