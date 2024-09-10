@@ -19,7 +19,6 @@ import storage from 'redux-persist/lib/storage';
 const persistConfig = {
   key: 'auth',
   storage,
-  whitelist: ['token'], // se memoreaza in local storage doar `token`-ul. De studiat daca se poate face ceva aici cu "remember me".
 };
 
 const persistedReducer = persistReducer(
